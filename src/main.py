@@ -19,5 +19,9 @@ def basic_neuron():
     print(n.feed_forward(x))
 
 
+def mse_loss(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    return np.mean((y_true - y_pred) ** 2)
+
+
 if __name__ == "__main__":
     main()
