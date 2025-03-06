@@ -4,10 +4,27 @@ from neural_network import OwnNeuralNetwork
 
 
 def main():
-    # basic_neuron()
+    # Define dataset
+    data = np.array(
+        [
+            [-2, -1],  # Alice
+            [25, 6],  # Bob
+            [17, 4],  # Charlie
+            [-15, -6],  # Diana
+        ]
+    )
+    all_y_trues = np.array(
+        [
+            1,  # Alice
+            0,  # Bob
+            0,  # Charlie
+            1,  # Diana
+        ]
+    )
+
+    # Train our neural network!
     network = OwnNeuralNetwork()
-    x = np.array([2, 3])
-    print(network.feed_forward(x))
+    network.train(data, all_y_trues)
 
 
 def basic_neuron():
@@ -17,10 +34,6 @@ def basic_neuron():
 
     x = np.array([2, 3])
     print(n.feed_forward(x))
-
-
-def mse_loss(y_true: np.ndarray, y_pred: np.ndarray) -> float:
-    return np.mean((y_true - y_pred) ** 2)
 
 
 if __name__ == "__main__":
